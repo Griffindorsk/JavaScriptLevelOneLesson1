@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пробник для JavaScript</title>
+</head>
+<body>
+    <p>Здесь будет JavaScript!</p>
+    <script>
+        var Tf; //для значения температуры по Фаренгейту
+        var Tc; //для значения температуры по Цельсию
+        var Involvement; //для хранения настроения пользователя
+        var name = 'Василий'; //имя пользователя
+        var admin; //имя администратора
+        Involvement = prompt('Хочешь пересчитать температуру в градусах Цельсия в градусы по Фаренгейту (да/нет)?');
+        switch (Involvement) {
+            case 'да':
+                alert('Мы знали, что вы согласитесь!');
+                break;
+            case 'нет':
+                Involvement = prompt('Ну как же так?! Может передумаете (да/нет)?');
+                if (Involvement == 'да') {
+                    alert('Ну конечно, мы знали что вы решитесь!');
+                }
+                else if (Involvement == 'нет') {
+                    alert('Искренне жаль, прощайте!');
+                    break;
+                }
+                else {
+                    alert('Мы вас не поняли, но до скорых встреч!');
+                    Involvement = 'нет';
+                }
+                break;
+            default:
+                alert('Здесь важно определиться, либо \"да\", либо \"нет\"! Попробуем еще разок!');
+                Involvement = prompt('Хочешь пересчитать температуру в градусах Цельсия в градусы по Фаренгейту (да/нет)?');
+                if (Involvement == 'да') {
+                    alert('Удача на нашей стороне! Сейчас будем пересчитывать!')
+                }
+                else {
+                    alert('Похоже, сегодня не наш день, прощайте!');
+                    Involvement = 'нет';
+                }
+                break;
+        }
+        if (Involvement == 'да') {
+            Tc = prompt('Введите значение температуры в градусах Цельсия');
+            Tc = parseFloat(Tc);
+            if (isNaN(Tc)) {
+                alert('Нам важно здесь число увидеть, иначе праздника не будет');
+                Tc = prompt('Введите значение температуры в градусах Цельсия');
+                if (isNaN(Tc)) {
+                    alert('Похоже с числами проблема, считать не будем строки мы!');
+                }
+                else {
+                    Tf = 9 / 5 * Tc + 32;
+                    Tf = Tf.toFixed(1);
+                    alert('Этой температуре соответствует ' + Tf + ' по Фаренгейту');
+                }
+            }
+            else {
+                Tf = 9 / 5 * Tc + 32;
+                Tf = Tf.toFixed(1);
+                alert('Этой температуре соответствует ' + Tf + ' по Фаренгейту');
+            }
+        }
+        alert('Ах, да, забыли назначить администратора! Сейчас он совершенно ' + admin+'!');
+        admin = name;
+        alert('Пусть будет он '+admin+'!');
+        document.write('<p>И повторим для верности на самой странице, что администратора зовут ' + admin + '!</p>');
+    </script>
+</body>
+</html>
